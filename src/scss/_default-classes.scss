@@ -1,0 +1,115 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: $font-basic, sans-serif;
+    font-size: $font-md;
+    line-height: 120%;
+    color: #6D6E71;
+}
+
+.wrap-helper {
+    height: 100%;
+	display: flex;
+	flex-direction: column;
+	
+	&__inner {
+		flex: 1 0 auto;
+	}
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 1165px;
+    margin: 0 auto;
+}
+
+.btn {
+	display: block;
+    padding: 10px 0 8px;
+    max-width: 150px;
+    width: 100%;
+    font-weight: 600;
+    font-size: 26px;
+	color: $white;
+	background: $orange;
+    text-align: center;
+    text-transform: uppercase;
+    cursor: pointer;
+    &_grey {
+        background: #6D6E71;
+    }
+    @include max_w_480 {
+        font-size: 22px;
+    }
+}
+
+.pl-50 {
+    padding-left: 50px;
+    @include max_w_992 {
+        padding-left: 0;
+    }
+}
+
+.section-pd {
+    padding: 115px 0 40px;
+    @include max_w_480 {
+        padding: 60px 0 40px;
+    }
+}
+
+.section-title {
+    margin-bottom: 40px;
+    font-size: 42px;
+    font-weight: bold;
+    line-height: 122%;
+    color: $orange;
+    text-transform: uppercase;
+    @include max_w_992 {
+        text-align: center;
+    }
+}
+
+.text-uppercase {
+    text-transform: uppercase;
+}
+.text-center {
+    text-align: center;
+}
+.text-left {
+    text-align: left;
+}
+.text-right {
+    text-align: right;
+}
+
+@include max_w_1200 {
+    .container {
+        width: 100%;
+        padding: 0 50px;
+    }
+}
+
+@include max_w_768 {
+    .container {
+        padding: 0 35px;
+    }
+    .section-title {
+        font-size: 30px;
+    }
+}
+
+@include max_w_480 {
+    body {
+        font-size: $font-xs;
+    }
+    .container {
+        padding: 0 20px;
+    }
+    .section-title {
+        margin-bottom: 30px;
+        font-size: 27px;
+    }
+} 

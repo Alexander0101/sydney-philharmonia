@@ -1,0 +1,212 @@
+.header {
+    padding: 38px 0 20px;
+    &-container {
+        display: flex;
+        align-items: stretch;
+        justify-content: space-between;
+    }
+
+    &-logo {
+        max-width: 150px;
+        width: 100%;
+    }
+
+    &-season {
+        margin: 0 25px;
+        max-width: 175px;
+        width: 100%;
+    }
+
+    &__name {
+        max-width: 285px;
+        width: 100%;
+        font-weight: bold;
+        font-size: 29px;
+        line-height: 32px;
+        color: $black;
+        text-transform: uppercase;
+        span {
+            color: $orange;
+        }
+    }
+
+    &-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-end;
+        &-links {
+            display: flex;
+            flex-direction: column;
+            font-weight: bold;
+            font-size: $font-lg;
+            line-height: 23px;
+            color: $grey;
+        }
+
+        & .social {
+            display: flex;
+            align-items: center;
+            &__link {
+                width: 18px;
+                margin-left: 6px;
+                &:last-child {
+                    margin-left: 10px;
+                }
+            }
+        }
+
+        &-donate {
+            font-weight: bold;
+            font-size: $font-lg;
+            color: $orange;
+        }
+    }
+
+    &-nav {
+        position: relative;
+        margin: 80px auto 0;
+        max-width: 740px;
+        width: 100%;
+    }
+
+    @include max_w_1024 {
+        &-nav {
+            max-width: 100%;
+        }
+        &-season {
+            display: none;
+        }
+    }
+
+    @include max_w_768 {
+        padding: 30px 0;
+        &-info {
+            justify-content: flex-start;
+            & .social {
+                margin-top: 7px;
+            }
+            &-donate {
+                display: none;
+            }
+        }
+        &__name {
+            text-align: center;
+        }
+        &-nav {
+            margin: -18px 0 0 auto;
+        }
+    }
+
+    @include max_w_700 {
+        &__name {
+            display: none;
+        }
+    }
+
+    @include max_w_480 {
+        padding: 15px 0 20px;
+        &-logo {
+            max-width: 100px;
+        }
+        &-info {
+            & .social {
+                display: none;
+            }
+        }
+    }
+}
+
+#toggle {
+    position: absolute;
+    display: none;
+}
+
+.tablet-menu {
+    display: none;
+    cursor: pointer;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &-item {
+        &__link {
+            font-size: $font-lg;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: all 0.5s;
+            &:hover {
+                color: $orange;
+            }
+        }
+    }
+}
+
+@include max_w_768 {
+    .tablet-menu{
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 23px;
+        height: 18px;
+        background: url('../img/svg/menu-icon.svg') no-repeat;
+        z-index: 7;
+        cursor: pointer;
+    }
+
+    .header-nav {
+        width: 100%;
+        height: 18px;
+    }
+
+    .nav {
+        position: absolute;
+        display: none;
+        padding: 120px 0 80px;
+        top: 0;
+        right: 0;
+        width: 320px;
+        flex-direction: column;
+        overflow: hidden;
+        color: $black;
+        background: $orange;
+        z-index: 5;
+        &-item__link:hover {
+            color: $white;
+        }
+    }  
+
+    .nav-item {
+        padding: 12px 0;
+        width: 100%;
+    }
+
+    #toggle:checked ~ .nav {
+        display: flex;
+        text-align: center;
+    }
+
+    #toggle:checked ~ .tablet-menu {
+        top: 30px;
+        right: 25px;
+        width: 22px;
+        height: 22px;
+        background: url('../img/svg/menu-close-icon.svg') no-repeat;
+    }
+}
+
+@include max_w_480 {
+    .nav {
+        margin: 0 -20px 0 0;
+        top: -70px;
+        width: 100vw;
+        border: none;
+    }
+
+    #toggle:checked ~ .tablet-menu {
+        top: -25px;
+    }
+}
